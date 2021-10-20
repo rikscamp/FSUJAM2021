@@ -7,6 +7,7 @@ public class PlayerMove : MonoBehaviour
     private Controls controls;
     public Animator animator;
     private string currentState;
+    public AudioSource walkSound;
 
     Rigidbody2D rigidB;
     
