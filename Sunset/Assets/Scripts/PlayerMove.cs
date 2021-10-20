@@ -63,6 +63,8 @@ public class PlayerMove : MonoBehaviour
             //walking anim her
             ChangeAnimationState(PLAYER_WALK);
 
+            walkSound.Play();
+
         }
 
         if (inputValue.magnitude < 0.01)

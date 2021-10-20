@@ -7,10 +7,10 @@ public class ColorChange : MonoBehaviour
     public SpriteRenderer player;
     [Range(0, 1)] public float lerpTime;
 
-    private bool isIn;
-    private bool isOut;
+    public bool isIn;
+    public bool isOut;
 
-    public Color colorToChangeTo;
+    
 
     
 
@@ -27,7 +27,8 @@ public class ColorChange : MonoBehaviour
         {
             player.color = Color.Lerp(player.color, Color.red, lerpTime * Time.deltaTime);
         }
-        else
+        
+        if(isOut)
         {
             player.color = Color.Lerp(player.color, Color.green, lerpTime * Time.deltaTime);
         }
@@ -40,14 +41,14 @@ public class ColorChange : MonoBehaviour
         //player.color = Color.red;
         Debug.Log("enter");
         isIn = true;
-        
+        isOut = false;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         Debug.Log("exit");
         isIn = false;
-        
+        isOut = true;
     }
 
 
