@@ -5,17 +5,20 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     private Controls controls;
+    public Animator animator;
+    private string currentState;
 
     Rigidbody2D rigidB;
-    public Animator animator;
+    
     public SpriteRenderer player;
 
     //Animation States
-
-
+    const string PLAYER_IDLE = "Idle";
+    const string PLAYER_WALK = "Walk";
 
     public float speed;
     public int rotationSpeed;
+    public bool isWalking;
 
     Vector2 inputValue;
 
@@ -23,6 +26,7 @@ public class PlayerMove : MonoBehaviour
     {
         controls = new Controls();
         rigidB = GetComponent<Rigidbody2D>();
+        
 
         controls.InGame.Move.performed += ctx => inputValue = ctx.ReadValue<Vector2>();
         controls.InGame.Move.canceled += ctx => inputValue = Vector2.zero;
@@ -52,8 +56,34 @@ public class PlayerMove : MonoBehaviour
 
             float rotation = Mathf.Atan2(inputValue.y, inputValue.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0f, 0f, rotation - 90);
+
+            isWalking = true;
+
+            //walking anim her
+            ChangeAnimationState(PLAYER_WALK);
+
         }
-        //transform.LookAt(transform.position + inputValue);
+
+        if (inputValue.magnitude < 0.01)
+        {
+            isWalking = false;
+
+            //Idle anim here
+            ChangeAnimationState(PLAYER_IDLE);
+        }
+
+    }
+
+    void ChangeAnimationState(string newState)
+    {
+        //stop the anim from interrupting itself
+        if (currentState == newState) return;
+
+        //Play the animation
+        animator.Play(newState);
+
+        //reassign the current state
+        currentState = newState;
 
     }
 
