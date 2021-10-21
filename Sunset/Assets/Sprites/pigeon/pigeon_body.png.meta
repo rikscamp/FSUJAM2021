@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: a2970aa5b5b81f441acc018f3a87440a
+guid: 3e84c63c84688f94d88ff4bf00682501
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6579580329819543244
-    second: bug1_sheet_0
+      213: 4372603444432954319
+    second: pigeon_body_0
   - first:
-      213: 2451844843764433800
-    second: bug1_sheet_1
+      213: -7813307180551743727
+    second: pigeon_body_1
   - first:
-      213: 9070254229787368964
-    second: bug1_sheet_2
+      213: -3429276170635007341
+    second: pigeon_body_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -148,13 +148,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bug1_sheet_0
+      name: pigeon_body_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 2000
-        width: 2000
-        height: 2000
+        y: 3000
+        width: 3000
+        height: 3000
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -162,20 +162,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc69a0a237d5f4b50800000000000000
-      internalID: 6579580329819543244
+      spriteID: fc363196aab9eac30800000000000000
+      internalID: 4372603444432954319
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bug1_sheet_1
+      name: pigeon_body_1
       rect:
         serializedVersion: 2
-        x: 2000
-        y: 2000
-        width: 2000
-        height: 2000
+        x: 3000
+        y: 3000
+        width: 3000
+        height: 3000
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -183,20 +183,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 883c3fc15e3b60220800000000000000
-      internalID: 2451844843764433800
+      spriteID: 1175436148e819390800000000000000
+      internalID: -7813307180551743727
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bug1_sheet_2
+      name: pigeon_body_2
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 2000
-        height: 2000
+        width: 3000
+        height: 3000
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -204,8 +204,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 40ed5fc6a2400ed70800000000000000
-      internalID: 9070254229787368964
+      spriteID: 39aa69ced73c860d0800000000000000
+      internalID: -3429276170635007341
       vertices: []
       indices: 
       edges: []
@@ -213,7 +213,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: f7d3c9db70e0dcf49b1d8905acc3e087
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 

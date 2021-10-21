@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: 3e84c63c84688f94d88ff4bf00682501
+guid: a2756c8ff41509348837347667419188
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4372603444432954319
-    second: pigeon_body_0
+      213: -1221882804332899622
+    second: pigeon_angry_0
   - first:
-      213: -7813307180551743727
-    second: pigeon_body_1
+      213: -7232293508197343300
+    second: pigeon_angry_1
   - first:
-      213: -3429276170635007341
-    second: pigeon_body_2
+      213: -1661176308495038761
+    second: pigeon_angry_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -55,7 +55,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 3000
+  spritePixelsToUnits: 300
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -148,7 +148,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pigeon_body_0
+      name: pigeon_angry_0
       rect:
         serializedVersion: 2
         x: 0
@@ -162,14 +162,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fc363196aab9eac30800000000000000
-      internalID: 4372603444432954319
+      spriteID: ad2549230100b0fe0800000000000000
+      internalID: -1221882804332899622
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pigeon_body_1
+      name: pigeon_angry_1
       rect:
         serializedVersion: 2
         x: 3000
@@ -183,14 +183,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1175436148e819390800000000000000
-      internalID: -7813307180551743727
+      spriteID: cbf98846f5bb1ab90800000000000000
+      internalID: -7232293508197343300
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pigeon_body_2
+      name: pigeon_angry_2
       rect:
         serializedVersion: 2
         x: 0
@@ -204,8 +204,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 39aa69ced73c860d0800000000000000
-      internalID: -3429276170635007341
+      spriteID: 7d6cbded2f052f8e0800000000000000
+      internalID: -1661176308495038761
       vertices: []
       indices: 
       edges: []
@@ -213,7 +213,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 46ad37ffa0b2bf449baf5074a35037a5
     internalID: 0
     vertices: []
     indices: 
