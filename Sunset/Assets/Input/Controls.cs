@@ -59,6 +59,33 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Menu"",
+            ""id"": ""3c69d873-dd46-4b30-b0df-ac2c0da914fe"",
+            ""actions"": [
+                {
+                    ""name"": ""StartGame"",
+                    ""type"": ""Button"",
+                    ""id"": ""236bb406-8e98-4ff9-8da4-e52d765a711b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""2755f0fb-5656-41dc-8e34-d5b4598c03ec"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""StartGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -67,6 +94,9 @@ public class @Controls : IInputActionCollection, IDisposable
         m_InGame = asset.FindActionMap("InGame", throwIfNotFound: true);
         m_InGame_Move = m_InGame.FindAction("Move", throwIfNotFound: true);
         m_InGame_Tounge = m_InGame.FindAction("Tounge", throwIfNotFound: true);
+        // Menu
+        m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
+        m_Menu_StartGame = m_Menu.FindAction("StartGame", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -153,9 +183,46 @@ public class @Controls : IInputActionCollection, IDisposable
         }
     }
     public InGameActions @InGame => new InGameActions(this);
+
+    // Menu
+    private readonly InputActionMap m_Menu;
+    private IMenuActions m_MenuActionsCallbackInterface;
+    private readonly InputAction m_Menu_StartGame;
+    public struct MenuActions
+    {
+        private @Controls m_Wrapper;
+        public MenuActions(@Controls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @StartGame => m_Wrapper.m_Menu_StartGame;
+        public InputActionMap Get() { return m_Wrapper.m_Menu; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MenuActions set) { return set.Get(); }
+        public void SetCallbacks(IMenuActions instance)
+        {
+            if (m_Wrapper.m_MenuActionsCallbackInterface != null)
+            {
+                @StartGame.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnStartGame;
+                @StartGame.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnStartGame;
+                @StartGame.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnStartGame;
+            }
+            m_Wrapper.m_MenuActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @StartGame.started += instance.OnStartGame;
+                @StartGame.performed += instance.OnStartGame;
+                @StartGame.canceled += instance.OnStartGame;
+            }
+        }
+    }
+    public MenuActions @Menu => new MenuActions(this);
     public interface IInGameActions
     {
         void OnMove(InputAction.CallbackContext context);
         void OnTounge(InputAction.CallbackContext context);
+    }
+    public interface IMenuActions
+    {
+        void OnStartGame(InputAction.CallbackContext context);
     }
 }

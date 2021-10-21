@@ -6,7 +6,7 @@ public class ForgroundManager : MonoBehaviour
 {
     public int d20;
 
-    
+    public bool gameStart;
 
     public Animator animator;
     
@@ -25,34 +25,38 @@ public class ForgroundManager : MonoBehaviour
     {
         Debug.Log(d20);
 
-       
+
+        if (gameStart) {
+
+            Debug.Log("here we go!");
+
+            if (d20 == 1)
+            {
+                //Juniper
+                //Debug.Log("Juniper Jazz is on the case!");
+                juniperJazz.SetActive(true);
+                d20 = 0;
 
 
-        if (d20 == 1)
-        {
-            //Juniper
-            Debug.Log("Juniper Jazz is on the case!");
-            juniperJazz.SetActive(true);
-            d20 = 0;
-           
+            }
 
-        }
+            if (d20 == 2)
+            {
+                //BottleMan
 
-        if (d20 == 2)
-        {
-            //BottleMan
-
-            d20 = 0;
+                d20 = 0;
 
 
 
-        }
+            }
 
-        if (d20 == 3)
-        {
-            //??
+            if (d20 == 3)
+            {
+                //??
 
-            d20 = 0;
+                d20 = 0;
+
+            }
 
         }
     }
