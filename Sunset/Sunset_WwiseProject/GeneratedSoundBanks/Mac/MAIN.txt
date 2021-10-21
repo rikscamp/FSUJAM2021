@@ -1,0 +1,7 @@
+Event	ID	Name			Wwise Object Path	Notes
+	452547817	Stop_All			\Default Work Unit\Stop_All	
+	2932040671	Play_Music			\Default Work Unit\Play_Music	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	925855474	Chill_Chameleon	G:\GitHub\FSUJAM2021\Sunset\Sunset_WwiseProject\.cache\Mac\SFX\Chill_Chameleon_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Chill_Chameleon\Chill_Chameleon_Intro\Chill_Chameleon		14039508
+

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{329D1E37-45C4-4B17-BD8B-7443B6E73F5E}" SchemaVersion="103">
+	<Events>
+		<WorkUnit Name="Default Work Unit" ID="{329D1E37-45C4-4B17-BD8B-7443B6E73F5E}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="Play_Music" ID="{CAF88C39-2E32-4B77-8F55-A2FD58330C50}">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="4"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Action Name="" ID="{06853694-91FF-45A1-965C-3B025FD58B45}" ShortID="239053026">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="3"/>
+								<Property Name="FadeOutCurve" Type="int16" Value="6"/>
+								<Property Name="FadeTime" Type="Real64" Value="1.5"/>
+							</PropertyList>
+							<ReferenceList/>
+						</Action>
+						<Action Name="" ID="{E2582DD3-DFDE-40C5-8961-79BE4EAE472C}" ShortID="842067482">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Chill_Chameleon" ID="{C4D1E76C-D640-4610-B4D6-5F2C92D31CA6}" WorkUnitID="{C3A52484-192A-4D47-8289-4FD3A96C5019}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_All" ID="{1FC3731B-7D39-49ED-A1DC-A9622FFA6DB0}">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="10"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Action Name="" ID="{B23B49BF-D2D2-425E-8E69-594473B594D3}" ShortID="867979490">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="3"/>
+								<Property Name="FadeOutCurve" Type="int16" Value="7"/>
+								<Property Name="FadeTime" Type="Real64" Value="1.5"/>
+								<Property Name="Scope" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList/>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>
