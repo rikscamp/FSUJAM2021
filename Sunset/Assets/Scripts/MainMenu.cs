@@ -6,8 +6,10 @@ public class MainMenu : MonoBehaviour
 {
     private Controls controls;
     private ForgroundManager cameoInitiate;
-    
+
+    public GameObject birdManage;
     public Animator cam;
+    public Animator logo;
 
     private void Awake()
     {
@@ -15,6 +17,7 @@ public class MainMenu : MonoBehaviour
 
         controls.Menu.StartGame.performed += ctx => StartGame();
         cameoInitiate = GameObject.FindObjectOfType<ForgroundManager>();
+        
 
     }
     // Start is called before the first frame update
@@ -33,11 +36,17 @@ public class MainMenu : MonoBehaviour
     {
         Debug.Log("StartGame");
         cam.SetTrigger("gameStart");
+        logo.SetTrigger("gameStart");
+        birdManage.SetActive(true);
+
+
+
 
         //Tell Scripts to start working!!
         cameoInitiate.gameStart = true;
-
         
+
+        //DONT PUT ANYTHING BELOW THIS!!!!
         Destroy(this);
     }
 

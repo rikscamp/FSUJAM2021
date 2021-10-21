@@ -28,6 +28,7 @@ public class PlayerMove : MonoBehaviour
     public float speed;
     public int rotationSpeed;
     public bool isWalking;
+    public bool isDead;
 
     public float lerpTime = 1;
 
@@ -59,16 +60,19 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     private void FixedUpdate()
     {
-        rigidB.velocity = inputValue * (speed * Time.fixedDeltaTime);
-
-        if (redBrick.isIn == false && blueBrick.isIn == false && cyanBrick.isIn == false)
+        if (!isDead) 
         {
-            player.color = Color.Lerp(player.color, Color.green, lerpTime * Time.deltaTime);
+
+            rigidB.velocity = inputValue * (speed * Time.fixedDeltaTime);
+
+            if (redBrick.isIn == false && blueBrick.isIn == false && cyanBrick.isIn == false)
+            {
+                player.color = Color.Lerp(player.color, Color.green, lerpTime * Time.deltaTime);
+            }
+
+
+            RotatePlayer();
         }
-
-       
-        RotatePlayer();
-
     }
 
     private void RotatePlayer()

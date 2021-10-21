@@ -9,6 +9,7 @@ public class BlueBrick : MonoBehaviour
 
     public bool isIn;
     
+    
 
 
 

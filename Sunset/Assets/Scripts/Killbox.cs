@@ -20,7 +20,7 @@ public class Killbox : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Cameo"))
         {
-            Debug.Log("ded");
+            //Debug.Log("ded");
             other.gameObject.SetActive(false);
         }
          
