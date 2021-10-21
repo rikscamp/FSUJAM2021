@@ -5,9 +5,17 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     private Controls controls;
+
+    //Special Bricks
+    private ColorChange redBrick;
+    private BlueBrick blueBrick;
+    private CyanBrick cyanBrick;
+
+
+
     public Animator animator;
     private string currentState;
-    public AudioSource walkSound;
+    
 
     Rigidbody2D rigidB;
     
@@ -21,18 +29,24 @@ public class PlayerMove : MonoBehaviour
     public int rotationSpeed;
     public bool isWalking;
 
+    public float lerpTime = 1;
+
     Vector2 inputValue;
 
     private void Awake()
     {
         controls = new Controls();
+        redBrick = GameObject.FindObjectOfType<ColorChange>();
+        blueBrick = GameObject.FindObjectOfType<BlueBrick>();
+        cyanBrick = GameObject.FindObjectOfType<CyanBrick>();
+
         rigidB = GetComponent<Rigidbody2D>();
         
 
         controls.InGame.Move.performed += ctx => inputValue = ctx.ReadValue<Vector2>();
         controls.InGame.Move.canceled += ctx => inputValue = Vector2.zero;
 
-        player.color = Color.green;
+        //player.color = Color.green;
 
     }
 
@@ -45,8 +59,14 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     private void FixedUpdate()
     {
-        rigidB.velocity = inputValue * (speed * Time.deltaTime);
-        
+        rigidB.velocity = inputValue * (speed * Time.fixedDeltaTime);
+
+        if (redBrick.isIn == false && blueBrick.isIn == false && cyanBrick.isIn == false)
+        {
+            player.color = Color.Lerp(player.color, Color.green, lerpTime * Time.deltaTime);
+        }
+
+       
         RotatePlayer();
 
     }
@@ -63,7 +83,7 @@ public class PlayerMove : MonoBehaviour
             //walking anim her
             ChangeAnimationState(PLAYER_WALK);
 
-            walkSound.Play();
+            
 
         }
 
@@ -76,6 +96,9 @@ public class PlayerMove : MonoBehaviour
         }
 
     }
+
+    
+    
 
     void ChangeAnimationState(string newState)
     {

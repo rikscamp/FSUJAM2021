@@ -6,7 +6,11 @@ public class ForgroundManager : MonoBehaviour
 {
     public int d20;
 
-    public bool eventHappening = false;
+    
+
+    public Animator animator;
+    
+    public GameObject juniperJazz;
 
 
 
@@ -26,22 +30,29 @@ public class ForgroundManager : MonoBehaviour
 
         if (d20 == 1)
         {
-            //PlayAnim
-            
-            
+            //Juniper
+            Debug.Log("Juniper Jazz is on the case!");
+            juniperJazz.SetActive(true);
+            d20 = 0;
+           
+
         }
 
         if (d20 == 2)
         {
-            //PlayAnim
+            //BottleMan
+
+            d20 = 0;
+
 
 
         }
 
         if (d20 == 3)
         {
-            //PlayAnim
+            //??
 
+            d20 = 0;
 
         }
     }
@@ -49,9 +60,12 @@ public class ForgroundManager : MonoBehaviour
     IEnumerator RollDice()
     {
         //Debug.Log("called");
-        eventHappening = true;
-        yield return new WaitForSeconds(5) ;
-        d20 = Random.Range(1, 7);
+       
+        yield return new WaitForSeconds(8);
+        d20 = Random.Range(1, 4);
+        yield return new WaitForSeconds(8);
         StartCoroutine(RollDice());
     }
+
+    
 }

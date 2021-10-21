@@ -5,10 +5,10 @@ using UnityEngine;
 public class ColorChange : MonoBehaviour
 {
     public SpriteRenderer player;
-    [Range(0, 1)] public float lerpTime;
+    public float lerpTime = 1;
 
     public bool isIn;
-    public bool isOut;
+    
 
     
 
@@ -28,28 +28,32 @@ public class ColorChange : MonoBehaviour
             player.color = Color.Lerp(player.color, Color.red, lerpTime * Time.deltaTime);
         }
         
-        if(isOut)
+        /*
+        if(!isIn)
         {
             player.color = Color.Lerp(player.color, Color.green, lerpTime * Time.deltaTime);
         }
-        
+        */
 
     }
+
+    
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //player.color = Color.red;
         Debug.Log("enter");
         isIn = true;
-        isOut = false;
+        
     }
 
+    
     private void OnTriggerExit2D(Collider2D collision)
     {
         Debug.Log("exit");
         isIn = false;
-        isOut = true;
+        
     }
-
+    
 
 }
