@@ -36,14 +36,14 @@ public class CyanBrick : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //player.color = Color.red;
-        Debug.Log("enter");
+        //Debug.Log("enter");
         isIn = true;
 
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log("exit");
+        //Debug.Log("exit");
         isIn = false;
 
     }
