@@ -58,7 +58,7 @@ public class PlayerMove : MonoBehaviour
         controls.InGame.Move.canceled += ctx => inputValue = Vector2.zero;
 
         controls.InGame.Restart.performed += ctx => Restart();
-
+        controls.InGame.Escape.performed += ctx => Quit();
         //player.color = Color.green;
 
     }
@@ -157,6 +157,12 @@ public class PlayerMove : MonoBehaviour
     void Restart()
     {
         SceneManager.LoadScene("Test");
+    }
+
+    void Quit()
+    {
+        Debug.Log("Quit");
+        Application.Quit();
     }
 
     private void OnEnable()

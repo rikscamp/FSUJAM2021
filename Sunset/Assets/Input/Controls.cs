@@ -41,6 +41,14 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Escape"",
+                    ""type"": ""Button"",
+                    ""id"": ""6fd8178f-3988-4b7f-b2d3-9fd153882bc5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -74,6 +82,17 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Restart"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6b34a6a4-3005-467a-9cc5-80f161484660"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Escape"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -114,6 +133,7 @@ public class @Controls : IInputActionCollection, IDisposable
         m_InGame_Move = m_InGame.FindAction("Move", throwIfNotFound: true);
         m_InGame_Tounge = m_InGame.FindAction("Tounge", throwIfNotFound: true);
         m_InGame_Restart = m_InGame.FindAction("Restart", throwIfNotFound: true);
+        m_InGame_Escape = m_InGame.FindAction("Escape", throwIfNotFound: true);
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_StartGame = m_Menu.FindAction("StartGame", throwIfNotFound: true);
@@ -169,6 +189,7 @@ public class @Controls : IInputActionCollection, IDisposable
     private readonly InputAction m_InGame_Move;
     private readonly InputAction m_InGame_Tounge;
     private readonly InputAction m_InGame_Restart;
+    private readonly InputAction m_InGame_Escape;
     public struct InGameActions
     {
         private @Controls m_Wrapper;
@@ -176,6 +197,7 @@ public class @Controls : IInputActionCollection, IDisposable
         public InputAction @Move => m_Wrapper.m_InGame_Move;
         public InputAction @Tounge => m_Wrapper.m_InGame_Tounge;
         public InputAction @Restart => m_Wrapper.m_InGame_Restart;
+        public InputAction @Escape => m_Wrapper.m_InGame_Escape;
         public InputActionMap Get() { return m_Wrapper.m_InGame; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -194,6 +216,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Restart.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnRestart;
                 @Restart.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnRestart;
                 @Restart.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnRestart;
+                @Escape.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnEscape;
+                @Escape.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnEscape;
+                @Escape.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnEscape;
             }
             m_Wrapper.m_InGameActionsCallbackInterface = instance;
             if (instance != null)
@@ -207,6 +232,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Restart.started += instance.OnRestart;
                 @Restart.performed += instance.OnRestart;
                 @Restart.canceled += instance.OnRestart;
+                @Escape.started += instance.OnEscape;
+                @Escape.performed += instance.OnEscape;
+                @Escape.canceled += instance.OnEscape;
             }
         }
     }
@@ -249,6 +277,7 @@ public class @Controls : IInputActionCollection, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnTounge(InputAction.CallbackContext context);
         void OnRestart(InputAction.CallbackContext context);
+        void OnEscape(InputAction.CallbackContext context);
     }
     public interface IMenuActions
     {
