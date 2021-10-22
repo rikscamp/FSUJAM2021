@@ -7,6 +7,8 @@ public class MainMenu : MonoBehaviour
     private Controls controls;
     private ForgroundManager cameoInitiate;
 
+    public GameObject cameo;
+
     public GameObject birdManage;
     public Animator cam;
     public Animator logo;
@@ -37,6 +39,7 @@ public class MainMenu : MonoBehaviour
         Debug.Log("StartGame");
         cam.SetTrigger("gameStart");
         logo.SetTrigger("gameStart");
+        cameo.SetActive(true);
         birdManage.SetActive(true);
 
 

@@ -1,16 +1,7 @@
 fileFormatVersion: 2
-guid: 6d55aba054bb7f346926c2fc6b2f512b
+guid: bff121f41068932499e341ae0b633673
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: -6174146278089755295
-    second: bottle_man_0
-  - first:
-      213: -6361187434354492217
-    second: bottle_man_1
-  - first:
-      213: 3650262714680682864
-    second: bottle_man_2
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -50,12 +41,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 300
+  spritePixelsToUnits: 130
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -146,74 +137,11 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: bottle_man_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 2000
-        width: 2000
-        height: 2000
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 165f82f0ca6015aa0800000000000000
-      internalID: -6174146278089755295
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bottle_man_1
-      rect:
-        serializedVersion: 2
-        x: 2000
-        y: 2000
-        width: 2000
-        height: 2000
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7cc3f914bb588b7a0800000000000000
-      internalID: -6361187434354492217
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bottle_man_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 2000
-        height: 2000
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 079256d599658a230800000000000000
-      internalID: 3650262714680682864
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 44c400b356af03e48baa76efa3b2a26f
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 

@@ -47,14 +47,14 @@ public class BirdThoughts : MonoBehaviour
     IEnumerator ColorThink()
     {
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(5);
 
         d6 = Random.Range(1, 4);
 
         if(d6 == 1)
         {
             red.SetActive(true);
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(4);
             
             if (isRed.isIn)
             {
@@ -70,7 +70,7 @@ public class BirdThoughts : MonoBehaviour
         if (d6 == 2)
         {
             blue.SetActive(true);
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(4);
             if (isBlue.isIn)
             {
                 Debug.Log("yay!");
@@ -84,7 +84,7 @@ public class BirdThoughts : MonoBehaviour
         if (d6 == 3)
         {
             cyan.SetActive(true);
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(4);
             if (isCyan.isIn)
             {
                 Debug.Log("yay!");
@@ -97,7 +97,7 @@ public class BirdThoughts : MonoBehaviour
             cyan.SetActive(false);
         }
 
-        yield return new WaitForSeconds(5);
+        
 
         StartCoroutine(ColorThink()); 
 

@@ -8,9 +8,13 @@ public class ForgroundManager : MonoBehaviour
 
     public bool gameStart;
 
-    public Animator animator;
+    //public Animator animator;
     
     public GameObject juniperJazz;
+    public GameObject reya;
+    public GameObject pirate;
+    public GameObject sam;
+    public GameObject bMan;
 
 
 
@@ -42,8 +46,8 @@ public class ForgroundManager : MonoBehaviour
 
             if (d20 == 2)
             {
-                //BottleMan
-
+                //Reya
+                reya.SetActive(true);
                 d20 = 0;
 
 
@@ -52,8 +56,24 @@ public class ForgroundManager : MonoBehaviour
 
             if (d20 == 3)
             {
-                //??
+                //pirate
+                pirate.SetActive(true);
+                d20 = 0;
 
+            }
+
+            if (d20 == 4)
+            {
+                //Sam
+                sam.SetActive(true);
+                d20 = 0;
+
+            }
+
+            if (d20 == 5)
+            {
+                //bMan
+                bMan.SetActive(true);
                 d20 = 0;
 
             }
@@ -66,7 +86,7 @@ public class ForgroundManager : MonoBehaviour
         //Debug.Log("called");
        
         yield return new WaitForSeconds(8);
-        d20 = Random.Range(1, 4);
+        d20 = Random.Range(1, 7);
         yield return new WaitForSeconds(8);
         StartCoroutine(RollDice());
     }
