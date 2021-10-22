@@ -33,6 +33,14 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Restart"",
+                    ""type"": ""Button"",
+                    ""id"": ""53dfb117-3504-4acf-a843-a54e78c40781"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -55,6 +63,17 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Tounge"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4faae097-e046-47e9-86cf-b1b95b5ab3ea"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Restart"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -94,6 +113,7 @@ public class @Controls : IInputActionCollection, IDisposable
         m_InGame = asset.FindActionMap("InGame", throwIfNotFound: true);
         m_InGame_Move = m_InGame.FindAction("Move", throwIfNotFound: true);
         m_InGame_Tounge = m_InGame.FindAction("Tounge", throwIfNotFound: true);
+        m_InGame_Restart = m_InGame.FindAction("Restart", throwIfNotFound: true);
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_StartGame = m_Menu.FindAction("StartGame", throwIfNotFound: true);
@@ -148,12 +168,14 @@ public class @Controls : IInputActionCollection, IDisposable
     private IInGameActions m_InGameActionsCallbackInterface;
     private readonly InputAction m_InGame_Move;
     private readonly InputAction m_InGame_Tounge;
+    private readonly InputAction m_InGame_Restart;
     public struct InGameActions
     {
         private @Controls m_Wrapper;
         public InGameActions(@Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_InGame_Move;
         public InputAction @Tounge => m_Wrapper.m_InGame_Tounge;
+        public InputAction @Restart => m_Wrapper.m_InGame_Restart;
         public InputActionMap Get() { return m_Wrapper.m_InGame; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -169,6 +191,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Tounge.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnTounge;
                 @Tounge.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnTounge;
                 @Tounge.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnTounge;
+                @Restart.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnRestart;
+                @Restart.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnRestart;
+                @Restart.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnRestart;
             }
             m_Wrapper.m_InGameActionsCallbackInterface = instance;
             if (instance != null)
@@ -179,6 +204,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Tounge.started += instance.OnTounge;
                 @Tounge.performed += instance.OnTounge;
                 @Tounge.canceled += instance.OnTounge;
+                @Restart.started += instance.OnRestart;
+                @Restart.performed += instance.OnRestart;
+                @Restart.canceled += instance.OnRestart;
             }
         }
     }
@@ -220,6 +248,7 @@ public class @Controls : IInputActionCollection, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnTounge(InputAction.CallbackContext context);
+        void OnRestart(InputAction.CallbackContext context);
     }
     public interface IMenuActions
     {

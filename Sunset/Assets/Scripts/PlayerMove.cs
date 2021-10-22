@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
@@ -11,9 +12,16 @@ public class PlayerMove : MonoBehaviour
     private BlueBrick blueBrick;
     private CyanBrick cyanBrick;
 
+    //Objects to disable upon death
+    public GameObject foot1;
+    public GameObject foot2;
+    public GameObject thought1;
+    public GameObject thought2;
+    public GameObject birdT;
 
 
     public Animator animator;
+    public Animator birb;
     private string currentState;
     
 
@@ -24,6 +32,8 @@ public class PlayerMove : MonoBehaviour
     //Animation States
     const string PLAYER_IDLE = "Idle";
     const string PLAYER_WALK = "Walk";
+
+    const string BIRB_LEAVE = "FuckYou";
 
     public float speed;
     public int rotationSpeed;
@@ -46,6 +56,8 @@ public class PlayerMove : MonoBehaviour
 
         controls.InGame.Move.performed += ctx => inputValue = ctx.ReadValue<Vector2>();
         controls.InGame.Move.canceled += ctx => inputValue = Vector2.zero;
+
+        controls.InGame.Restart.performed += ctx => Restart();
 
         //player.color = Color.green;
 
@@ -72,6 +84,18 @@ public class PlayerMove : MonoBehaviour
 
 
             RotatePlayer();
+        }
+        else
+        {
+
+            foot1.SetActive(false);
+            foot2.SetActive(false);
+            thought1.SetActive(false);
+            thought2.SetActive(false);
+            birdT.SetActive(false);
+
+
+            ChangeAnimationStateBirb(BIRB_LEAVE);
         }
     }
 
@@ -115,6 +139,24 @@ public class PlayerMove : MonoBehaviour
         //reassign the current state
         currentState = newState;
 
+    }
+
+    void ChangeAnimationStateBirb(string newState)
+    {
+        //stop the anim from interrupting itself
+        if (currentState == newState) return;
+
+        //Play the animation
+        birb.Play(newState);
+
+        //reassign the current state
+        currentState = newState;
+
+    }
+
+    void Restart()
+    {
+        SceneManager.LoadScene("Test");
     }
 
     private void OnEnable()

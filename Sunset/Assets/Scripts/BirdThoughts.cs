@@ -9,8 +9,8 @@ public class BirdThoughts : MonoBehaviour
 
 
     private BlueBrick isBlue;
-
-
+    private ColorChange isRed;
+    private CyanBrick isCyan;
     
 
     //brick colors
@@ -27,6 +27,10 @@ public class BirdThoughts : MonoBehaviour
         StartCoroutine(ColorThink());
 
         isBlue = GameObject.FindObjectOfType<BlueBrick>();
+        isCyan = GameObject.FindObjectOfType<CyanBrick>();
+        isRed = GameObject.FindObjectOfType<ColorChange>();
+
+
         player = GameObject.FindObjectOfType<PlayerMove>();
     }
 
@@ -51,7 +55,16 @@ public class BirdThoughts : MonoBehaviour
         {
             red.SetActive(true);
             yield return new WaitForSeconds(5);
-           
+            
+            if (isRed.isIn)
+            {
+                Debug.Log("yay!");
+            }
+            else
+            {
+                player.isDead = true;
+            }
+
             red.SetActive(false);
         }
         if (d6 == 2)
@@ -72,6 +85,15 @@ public class BirdThoughts : MonoBehaviour
         {
             cyan.SetActive(true);
             yield return new WaitForSeconds(5);
+            if (isCyan.isIn)
+            {
+                Debug.Log("yay!");
+            }
+            else
+            {
+                player.isDead = true;
+            }
+            
             cyan.SetActive(false);
         }
 
